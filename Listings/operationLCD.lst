@@ -1,0 +1,43 @@
+C51 COMPILER V9.54   OPERATIONLCD                                                          10/27/2025 23:42:56 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE OPERATIONLCD
+OBJECT MODULE PLACED IN .\Objects\operationLCD.obj
+COMPILER INVOKED BY: d:\Keil_v5\C51\BIN\C51.EXE operationLCD.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listi
+                    -ngs\operationLCD.lst) OBJECT(.\Objects\operationLCD.obj)
+
+line level    source
+
+   1          #include "selfdefine.h"
+   2          
+   3          void operationLCD(){
+   4   1           LCD_Init();
+   5   1           // LCD_ShowChar(1,1,'A');
+   6   1           // 第一个参数是第一行显示，第二个参数是开始的位置，第三个是显示的内容
+   7   1           // LCD_ShowString(1,0,"Niu Xiao Dong");
+   8   1           // LCD_ShowString(2,2,"185 0085 2240");
+   9   1           // LED 闪烁显示姓名和电话号码
+  10   1           while(1){
+  11   2               LCD_ShowString(1,0,"Tel:Niu Xiaodong");
+  12   2              LCD_ShowString(2,2,"185 0085 2240");
+  13   2               
+  14   2               DelayXms(500);
+  15   2               LCD_Init();
+  16   2               DelayXms(800);
+  17   2               
+  18   2           }
+  19   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =     48    ----
+   CONSTANT SIZE    =     31    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----    ----
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)

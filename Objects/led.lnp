@@ -1,0 +1,11 @@
+".\Objects\delay.obj",
+".\Objects\lightLed.obj",
+".\Objects\main.obj",
+".\Objects\switch.obj",
+".\Objects\LCD1602.obj",
+".\Objects\operationLCD.obj",
+".\Objects\digital.obj",
+".\Objects\digital-v2.obj",
+".\Objects\swithKey.obj" 
+TO ".\Objects\led" 
+PRINT(".\Listings\led.m51") RAMSIZE(256) 

@@ -1,0 +1,1 @@
+"operationLCD.c" OPTIMIZE (8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\operationLCD.lst) OBJECT(.\Objects\operationLCD.obj)

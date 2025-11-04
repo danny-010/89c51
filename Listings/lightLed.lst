@@ -1,0 +1,97 @@
+C51 COMPILER V9.54   LIGHTLED                                                              10/27/2025 23:42:56 PAGE 1   
+
+
+C51 COMPILER V9.54, COMPILATION OF MODULE LIGHTLED
+OBJECT MODULE PLACED IN .\Objects\lightLed.obj
+COMPILER INVOKED BY: d:\Keil_v5\C51\BIN\C51.EXE lightLed.c OPTIMIZE(8,SPEED) BROWSE DEBUG OBJECTEXTEND PRINT(.\Listings\
+                    -lightLed.lst) OBJECT(.\Objects\lightLed.obj)
+
+line level    source
+
+   1          #include "./selfDefine.h"
+   2          
+   3          void lightOneLed(LED_LIGHT_TYPE type){
+   4   1              if (type == LED_LIGHT_ALWAYS) {
+   5   2                      P2 = 0xFE;
+   6   2                      while(1);
+   7   2              } else {
+   8   2                      P2 = 0xFE;
+   9   2                      Delay100ms();
+  10   2                      P2 = 0xFF;
+  11   2              }
+  12   1      
+  13   1      }
+  14          
+  15          void flickerOneLed(LED_LIGHT_TYPE type){
+  16   1              if (type == LED_LIGHT_ONCE){
+  17   2                      P2 = 0xFE;
+  18   2                      Delay100ms();
+  19   2                      P2 = 0xFF;
+  20   2                      Delay100ms();
+  21   2              } else {
+  22   2                      while(1){
+  23   3                              // P2 定义在#include <REGX52.H>
+  24   3                              P2 = 0xFE;
+  25   3                              Delay100ms();
+  26   3                              // Delay1000ms();
+  27   3                              P2 = 0xFF;
+  28   3                              Delay100ms();
+  29   3                              // Delay1000ms();
+  30   3                      }
+  31   2              }
+  32   1      
+  33   1      }
+  34          
+  35          void movingLightDisplay1(){
+  36   1              while(1){
+  37   2                      // A    B       C       D       E       F
+  38   2                      // 10   11      12      13      14      15
+  39   2                      P2 = 0xFE; // 1111 1110
+  40   2                      Delay100ms();
+  41   2                      P2 = 0xFD; // 1111 1101
+  42   2                      Delay100ms();
+  43   2                      P2 = 0xFB; // 1111 1011
+  44   2                      Delay100ms();
+  45   2                      P2 = 0xF7; // 1111 0111
+  46   2                      Delay100ms();
+  47   2                      P2 = 0xEF;      // 1110 1111
+  48   2                      Delay100ms();
+  49   2                      P2 = 0xDF;      //1101 1111
+  50   2                      Delay100ms();
+  51   2                      P2 = 0xBF;      // 1011 1111
+  52   2                      Delay100ms();
+  53   2                      P2 = 0x7F;      // 0111 1111
+  54   2                      Delay100ms();
+C51 COMPILER V9.54   LIGHTLED                                                              10/27/2025 23:42:56 PAGE 2   
+
+  55   2              }
+  56   1      }
+  57          
+  58          void movingLightDisplay2(){
+  59   1              int i;
+  60   1              while(1){
+  61   2                      for(i = 0; i < 8;i++){
+  62   3                              // 为什么取反？ 
+  63   3                              // 移位以后右边要补0，
+  64   3                              // 0xFE --> 1111 1110 左移一位变成 1111 1100 这种是不满足需求的，它最终需要变成1111 1101
+  65   3                              // 0xFD --> 1111 1101   
+  66   3                              // 所以要从0000 0001 开始左移，以后取反
+  67   3                              P2 = ~(0x01<<i);
+  68   3                              DelayXms(1000);
+  69   3                      }
+  70   2              }
+  71   1      }
+
+
+MODULE INFORMATION:   STATIC OVERLAYABLE
+   CODE SIZE        =    150    ----
+   CONSTANT SIZE    =   ----    ----
+   XDATA SIZE       =   ----    ----
+   PDATA SIZE       =   ----    ----
+   DATA SIZE        =   ----       2
+   IDATA SIZE       =   ----    ----
+   BIT SIZE         =   ----    ----
+END OF MODULE INFORMATION.
+
+
+C51 COMPILATION COMPLETE.  0 WARNING(S),  0 ERROR(S)
